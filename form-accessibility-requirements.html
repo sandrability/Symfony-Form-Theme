@@ -6,9 +6,73 @@
 	
 	<body>
 		<h1>Accessibility requirements for forms</h2>
-		<h2>Form elements</h2>
-		<p>
-			
-		</p>
+		<!-- All form fields should be coded with native HTML form elements. These provide strong and reliable support in use with assistive technology. Avoud creating your own form objects. You get a lot for free by using HTML native elements. Also avoid using WAI-ARIA attributes as far as possible. See the example below. -->
+		<form>
+			<input id="textOne" type="text" name="textField">
+		</form>
+		<!-- The input element above contains an id attribute which is essential when we add labels to the form fields. The name attribute should also always be used. In groups of radio buttons and checkboxes, the name attribute provides support for keyboard navigation.
+
+		All form fields with no inline labels should have a label element connected to the field. This provides assistive technology, such as screen readers, with clear and reliable feedback about the purpose of the field.
+
+		Label elements should always contain a for attribute that refers to the value of the id attribute in the corresponding form field.
+
+		Input elements can be embedded in label elments, but the for attribute should always be used. There is assistive technology that won't fetch the content of the label if the for attribute is missing. See the examples below. -->
+		<!-- A label for a text field -->
+		<form>
+			<label for="textOne">Textfield:</label>
+			<br>
+			<input id="textOne" type="text" name="textField">
+		</form>
+		
+		<!-- Radio buttons embedded in label elements with the for attribute. -->
+		<form>
+			<label for="radioOne">
+				<input id="radioOne" type="radio" name="radio1">
+				Radio number 1
+			</label>
+			<br>
+			<label for="radioTwo">
+				<input id="radioTwo" type="radio" name="radio2">
+				Radio number 2
+			</label>
+			<br>
+			<label for="radioThree">
+				<input id="radioThree" type="radio" name="radio3">
+				Radio number 3
+			</label>
+		</form>
+		
+		<!-- In forms that contains a large number of fields, fields that belong together should be grouped and embedded in fieldset elements. The fieldset element is however always of critical use with radio buttons and checkboxes. These elements are rarely used as single objects, but are in most cases used in groups of objects to represent possible choices or alternatives in a common context. The context for a group of form fields should be embedded in a legend element, that works as a heading for fieldset element. See the example below.-->
+		<form>
+			<fieldset>
+				<legend>Your information</legend>
+				<label for="firstName">First name:</label>
+				<br>
+				<input id="firstName" type="text" name="firstN">
+				<br>
+				<br>
+				<label for="lastName">Last name:</label>
+				<br>
+				<input id="lastName" type="text" name="lastN">
+				<br>
+				<br>
+				<label for="email">Email address:</label>
+				<br>
+				<input id="email" type="email" name="emailAddress">
+			</fieldset>
+			<fieldset>
+				<legend>Your choices for the conference</label>
+				<label for="choiceOne">
+					<input id="choiceOne" type="radio" name="conferenceOnly">
+						I'd like to attend on the conference only
+				</label>
+				<br>
+				<label for="choiceTwo">
+					<input id="choiceTwo" type="radio" name="conferenceDinner">
+					Of course I will attend on both!
+				</label>
+			</fieldset>
+			<input type="submit" value="Submit">
+		</form>
 	</body>
 </html>
