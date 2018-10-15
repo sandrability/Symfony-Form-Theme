@@ -1,49 +1,148 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		<title>Accessibility requirements for forms
+		<title>Accessibility requirements for forms</title>
 	</head>
-	
+
 	<body>
-		<h1>Accessibility requirements for forms</h2>
-		<!-- All form fields should be coded with native HTML form elements. These provide strong and reliable support in use with assistive technology. Avoud creating your own form objects. You get a lot for free by using HTML native elements. Also avoid using WAI-ARIA attributes as far as possible. See the example below. -->
-		<form>
-			<input id="textOne" type="text" name="textField">
-		</form>
-		<!-- The input element above contains an id attribute which is essential when we add labels to the form fields. The name attribute should also always be used. In groups of radio buttons and checkboxes, the name attribute provides support for keyboard navigation.
+		<form method="post">
+			<h1>Accessibility requirements for forms</h2>
+			<!-- All form fields should be coded with native HTML form elements. These provide strong and reliable support in use with assistive technology. Avoud creating your own form objects. You get a lot for free by using HTML native elements. See the example below. -->
+			<h2>Form elements</h2>
+			<p>
+				A textfield without a proper label
+				<br>
+				<input id="textFieldOne" type="text" name="textFieldOne">
+			</p>
 
-		All form fields with no inline labels should have a label element connected to the field. This provides assistive technology, such as screen readers, with clear and reliable feedback about the purpose of the field.
+			<!-- The input element above contains an id attribute which is essential when we add labels to the form fields. The name attribute should also always be used. In groups of radio buttons and checkboxes, the name attribute provides support for keyboard navigation.
 
-		Label elements should always contain a for attribute that refers to the value of the id attribute in the corresponding form field.
+			Form fields with no inline labels should have a label element connected to the field. This provides assistive technology, such as screen readers, with clear and reliable feedback about the purpose of the field.
 
-		Input elements can be embedded in label elments, but the for attribute should always be used. There is assistive technology that won't fetch the content of the label if the for attribute is missing. See the examples below. -->
-		<!-- A label for a text field -->
-		<form>
-			<label for="textOne">Textfield:</label>
-			<br>
-			<input id="textOne" type="text" name="textField">
-		</form>
-		
-		<!-- Radio buttons embedded in label elements with the for attribute. -->
-		<form>
-			<label for="radioOne">
-				<input id="radioOne" type="radio" name="radio1">
-				Radio number 1
-			</label>
-			<br>
-			<label for="radioTwo">
-				<input id="radioTwo" type="radio" name="radio2">
-				Radio number 2
-			</label>
-			<br>
-			<label for="radioThree">
-				<input id="radioThree" type="radio" name="radio3">
-				Radio number 3
-			</label>
-		</form>
-		
-		<!-- In forms that contains a large number of fields, fields that belong together should be grouped and embedded in fieldset elements. The fieldset element is however always of critical use with radio buttons and checkboxes. These elements are rarely used as single objects, but are in most cases used in groups of objects to represent possible choices or alternatives in a common context. The context for a group of form fields should be embedded in a legend element, that works as a heading for fieldset element. See the example below.-->
-		<form>
+			Label elements should always contain a for attribute that refers to the value of the id attribute in the corresponding form field.
+
+			Input elements can be embedded in label elments, but the for attribute should always be used. There is assistive technology that won't fetch the content of the label if the for attribute is missing. See the examples below. -->
+			<!-- Label with text field -->
+			<p>
+				<label for="textFieldTwo">Textfield:</label>
+				<br>
+				<input id="textFieldTwo" type="text" name="textFieldTwo">
+			</p>
+
+			<!-- Buttons should always have an inline label. Can be visually hidden. -->
+			<p>
+				<button type="button">Click me!</button>
+			</p>
+
+			<!-- Label with <textarea -->
+			<p>
+				<label for="textArea">Write something:</label>
+				<br>
+				<textarea id="textArea" name="message" rows="10" cols="20"></textarea>
+			</p>
+
+			<!-- Labels can be combined with drop-down lists -->
+			<!-- Beneficial when connecting error messages with the field -->
+			<p>
+				<label for="selectBox">Make a selection:</label>
+				<br>
+				<select id="selectBox" name="selection">
+					<option value="-1" selected>None</option>
+					<option value="opt1">First option</option>
+					<option value="opt2">Second option</option>
+					<option value="opt3">Third option</option>
+				</select>
+			</p>
+
+			<!-- Label with datalist -->
+			<p>
+				<label for="dataList">This is a browser datalist:</label>
+				<br>
+				<input id="dataList" list="browsers">
+				<datalist id="browsers">
+					<option value="Internet Explorer">
+					<option value="Firefox">
+					<option value="Google Chrome">
+					<option value="Safari">
+					<option value="Microsoft Edge">
+					<option value="Opera">
+				</datalist>
+			</p>
+
+			<h2>Input types</h2>
+			<h3>Checkboxes</h3>
+			<!-- Labels with checkboxes -->
+			<p>
+				<input id="checkBoxOne" type="checkbox" value="HTML" name="webprogramming">
+				<label for="checkBoxOne">HTML</label>
+				<br>
+				<input id="checkBoxTwo" type="checkbox" value="CSS" name="webprogramming">
+				<label for="checkBoxTwo">CSS</label>
+				<br>
+				<input id="checkBoxThree" type="checkbox" value="JavaScript" name="webprogramming">
+				<label for="checkBoxThree">JavaSript</label>
+				<br>
+				<input id="checkBoxFour" type="checkbox" value="PHP" name="webprogramming">
+				<label for="checkBoxFour">PHP</label>
+				<br>
+				<input id="checkBoxFive" type="checkbox" value="ASP" name="webprogramming">
+				<label for="checkBoxFive">ASP.Net</label>
+
+				<!-- Radio buttons embedded in label elements with the for attribute. -->
+				<p>
+					<label for="checkBoxA">
+						<input id="checkBoxA" type="checkbox" value="a" name="letter">
+							A
+					</label>
+					<br>
+					<label for="checkBoxB">
+						<input id="checkBoxB" type="checkbox" value="b" name="letter">
+							B
+					</label>
+					<br>
+					<label for="checkBoxC">
+						<input id="checkBoxC" type="checkbox" value="c" name="letter">
+							C
+					</label>
+			</p>
+			<h3>Radio buttons</h3>
+			<!-- Labels with radio buttons -->
+			<p>
+				<input id="radioOne" type="radio" value="internet-Explorer" name="browsers">
+				<label for="radioOne">Internet Explorer</label>
+				<br>
+				<input id="radioTwo" type="radio" value="Google-Chrome" name="browsers">
+				<label for="radioTwo">Google Chrome</label>
+				<br>
+				<input id="radioThree" type="radio" value="Mozilla-Firefox" name="browsers">
+				<label for="radioThree">Mozilla Firefox</label>
+				<br>
+				<input id="radioFour" type="radio" value="Opera" name="browsers">
+				<label for="radioFour">Opera</label>
+				<br>
+				<input id="radioFive" type="radio" value="Microsoft-Edge" name="browsers">
+				<label for="radioFive">Microsoft Edge</label>
+			</p>
+
+			<!-- Radio buttons embedded in label elements with the for attribute. -->
+			<p>
+				<label for="radioYes">
+				<input id="radioYes" type="radio" value="yes" name="answer">
+					Yes
+				</label>
+				<br>
+				<label for="radioNo">
+					<input id="radioNo" type="radio" value="no" name="answer">
+						No
+				</label>
+				<br>
+				<label for="radioMaybe">
+					<input id="radioMaybe" type="radio" value="maybe" name="answer">
+						Maybe
+				</label>
+			</p>
+
+			<!-- In forms that contains a large number of fields, fields that belong together should be grouped and embedded in fieldset elements. The fieldset element is however always of critical use with radio buttons and checkboxes. These elements are rarely used as single objects, but are in most cases used in groups of objects to represent possible choices or alternatives in a common context. The context for a group of form fields should be embedded in a legend element, that works as a heading for fieldset element. See the example below.-->
 			<fieldset>
 				<legend>Your information</legend>
 				<label for="firstName">First name:</label>
@@ -61,10 +160,10 @@
 				<input id="email" type="email" name="emailAddress">
 			</fieldset>
 			<fieldset>
-				<legend>Your choices for the conference</label>
+				<legend>Your choice for the conference</legend>
 				<label for="choiceOne">
 					<input id="choiceOne" type="radio" name="conferenceOnly">
-						I'd like to attend on the conference only
+					I'd like to attend on the conference only
 				</label>
 				<br>
 				<label for="choiceTwo">
@@ -72,7 +171,9 @@
 					Of course I will attend on both!
 				</label>
 			</fieldset>
-			<input type="submit" value="Submit">
+			<p>
+				<input type="submit" value="Submit">
+			</p>
 		</form>
 	</body>
 </html>
