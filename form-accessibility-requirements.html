@@ -6,7 +6,7 @@
 
 	<body>
 		<form method="post">
-			<h1>Accessibility requirements for forms</h2>
+		<h1>Accessibility requirements for forms</h2>
 			<!-- All form fields should be coded with native HTML form elements. These provide strong and reliable support in use with assistive technology. Avoud creating your own form objects. You get a lot for free by using HTML native elements. See the example below. -->
 			<h2>Form elements</h2>
 			<p>
@@ -32,13 +32,6 @@
 			<!-- Buttons should always have an inline label. Can be visually hidden. -->
 			<p>
 				<button type="button">Click me!</button>
-			</p>
-
-			<!-- Label with <textarea -->
-			<p>
-				<label for="textArea">Write something:</label>
-				<br>
-				<textarea id="textArea" name="message" rows="10" cols="20"></textarea>
 			</p>
 
 			<!-- Labels can be combined with drop-down lists -->
@@ -70,8 +63,16 @@
 			</p>
 
 			<h2>Input types</h2>
+			<!-- Input types are ordered alphabetically -->
+
+			<h3>Button</h3>
+			<!-- Defines a clickable button (mostly used with a JavaScript to activate a script).
+			Label for button type is assigned with the value attribute. -->
+			<input type="button" value="Hit me!" onClick="click()">
+
 			<h3>Checkboxes</h3>
-			<!-- Labels with checkboxes -->
+			<!-- Defines a checkbox.
+			Labels with checkboxes. -->
 			<p>
 				<input id="checkBoxOne" type="checkbox" value="HTML" name="webprogramming">
 				<label for="checkBoxOne">HTML</label>
@@ -88,7 +89,7 @@
 				<input id="checkBoxFive" type="checkbox" value="ASP" name="webprogramming">
 				<label for="checkBoxFive">ASP.Net</label>
 
-				<!-- Radio buttons embedded in label elements with the for attribute. -->
+				<!-- Checkboxes embedded in label elements with the for attribute. -->
 				<p>
 					<label for="checkBoxA">
 						<input id="checkBoxA" type="checkbox" value="a" name="letter">
@@ -105,8 +106,89 @@
 							C
 					</label>
 			</p>
+
+			<h3>Color</h3>
+			<!-- Defines a color picker.
+			Label with color type. -->
+			<label for="colorInput">
+				<input id="colorInput" type="color" name="colorPicker" value="#000000">
+				Pick you favorite color:
+			</label>
+
+			<h3>Date</h3>
+			<!-- Defines a date control (year, month, day (no time)).
+			Label with date type -->
+			<label for="dateInput">
+				<input id="dateInput" type="date" name="dateControl">
+				Type a date:
+			</label>
+
+			<h3>Date and time</h3>
+			<!-- Defines a date and time control (year, month, day, time (no timezone).
+			Label with date and time type -->
+			<label for="dateTimeInput">
+				<input id="dateTimeInput" type="datetime-local" name="dateTimeControl">
+				Type the date and time for your current location:
+			</label>
+
+			<h3>Email</h3>
+			<!-- Defines a field for an e-mail address.
+			Label with email type -->
+			<label for="emailInput">
+				<input id="emailInput" type="email" name="email">
+				Type your email:
+			</label>
+
+			<h3>File</h3>
+			<!-- Defines a file-select field and a "Browse" button (for file uploads).
+			Label with file type -->
+			<label for="fileInput">
+				<input id="fileInput" type="file" name="file">
+				Pick a file to upload:
+			</label>
+
+			<h3>Hidden</h3>
+			<!-- 	Defines a hidden input field.
+			Label with hidden type. The label element needs to be hidden. -->
+			<label for="hiddenInput" class="hiddenLabel">
+				<input id="hiddenInput" type="hidden" name="hidden" value="1234">
+				Secret!
+			</label>
+
+			<h3>Image</h3>
+			<!-- Defines an image as the submit button.
+			Label with image type. This input type needs to contain an alt attribute. -->
+			<label for="imageInput" class="sr-only">
+				<input id="imageInput" type="image" src="arrow.png" alt="Green arrow" height="50" width="50">
+				Submit
+			<label>
+
+			<h3>Month</h3>
+			<!-- Defines a month and year control (no timezone).
+			Label with month type. -->
+			<label for="monthInput">
+				<input id="monthInput" type="month" name="month">
+				Pick a month and year:
+			</label>
+
+			<h3>Number</h3>
+			<!-- Defines a field for entering a number.
+			Label with number type. -->
+			<label for="numberInput">
+				<input id="numberInput" type="number" name="number">
+				Cell number:
+			</label>
+
+			<h3>Password</h3>
+			<!-- Defines a password field. Label with password type. -->
+			<label for="passwordInput">
+				<input id="passwordInput" type="password" name="password">
+				Password:
+			</label>
+
 			<h3>Radio buttons</h3>
-			<!-- Labels with radio buttons -->
+			<!-- Defines a radio button
+			Labels with radio buttons. -->
 			<p>
 				<input id="radioOne" type="radio" value="internet-Explorer" name="browsers">
 				<label for="radioOne">Internet Explorer</label>
@@ -127,22 +209,34 @@
 			<!-- Radio buttons embedded in label elements with the for attribute. -->
 			<p>
 				<label for="radioYes">
-				<input id="radioYes" type="radio" value="yes" name="answer">
+					<input id="radioYes" type="radio" value="yes" name="answer">
 					Yes
 				</label>
 				<br>
 				<label for="radioNo">
 					<input id="radioNo" type="radio" value="no" name="answer">
-						No
+					No
 				</label>
 				<br>
 				<label for="radioMaybe">
 					<input id="radioMaybe" type="radio" value="maybe" name="answer">
-						Maybe
+					Maybe
 				</label>
 			</p>
 
-			<!-- In forms that contains a large number of fields, fields that belong together should be grouped and embedded in fieldset elements. The fieldset element is however always of critical use with radio buttons and checkboxes. These elements are rarely used as single objects, but are in most cases used in groups of objects to represent possible choices or alternatives in a common context. The context for a group of form fields should be embedded in a legend element, that works as a heading for fieldset element. See the example below.-->
+
+
+			<!-- Label with <textarea -->
+			<p>
+				<label for="textArea">Write something:</label>
+				<br>
+				<textarea id="textArea" name="message" rows="10" cols="20"></textarea>
+			</p>
+
+			<h2>Other form elements</h3>
+			<h3>Fieldset and legend elements
+			<!-- In forms that contains a large number of fields, fields that belong together should be grouped and embedded in fieldset elements. THe fieldset element should be started with a legend element, that works as a heading for fieldset element.
+			The fieldset element is of critical use with radio buttons and checkboxes. These elements are rarely used as single objects, but are in most cases used in groups of objects to represent possible choices or alternatives in a common context. The context for a group of form fields, such as radio buttons and checkboxes, is embedded in a legend element. See the example below. -->
 			<fieldset>
 				<legend>Your information</legend>
 				<label for="firstName">First name:</label>
@@ -174,6 +268,11 @@
 			<p>
 				<input type="submit" value="Submit">
 			</p>
+
+			<h2>Error messages</h2>
+			<h3>Error messages with input fields</h3>
+
+			<h3>Error messages with radio buttons and Checkboxes</h3>
 		</form>
 	</body>
 </html>
