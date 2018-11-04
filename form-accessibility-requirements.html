@@ -5,274 +5,434 @@
 	</head>
 
 	<body>
-		<form method="post">
 		<h1>Accessibility requirements for forms</h2>
-			<!-- All form fields should be coded with native HTML form elements. These provide strong and reliable support in use with assistive technology. Avoud creating your own form objects. You get a lot for free by using HTML native elements. See the example below. -->
-			<h2>Form elements</h2>
-			<p>
-				A textfield without a proper label
-				<br>
-				<input id="textFieldOne" type="text" name="textFieldOne">
-			</p>
+		<!-- All form fields should be coded with native HTML form elements. These provide strong and reliable compatibility with assistive technology. Avoud creating your own form objects with divs and spans. You get a lot for free by using HTML native elements. See the examples below. These exemaples demonstrate two textfields. The first field has a un uncoded lable with no connection to the input field. The other has a label in a label element which is connected to the input field with the for attribute. -->
+		<h2>Form elements</h2>
+		<p>
+			This is not a proper label. Enter something in the field anyway:
+			<br>
+			<input id="textFieldOne" type="text" name="textOne">
+		</p>
+		<p>
+			<label for="textFieldTwo">This is very good label. Enter something in the field:</label>
+			<br>
+			<input id="textFieldTwo" type="text" name="textTwo">
+		</p>
 
-			<!-- The input element above contains an id attribute which is essential when we add labels to the form fields. The name attribute should also always be used. In groups of radio buttons and checkboxes, the name attribute provides support for keyboard navigation.
+		<!-- The input element above contains an id attribute which is essential when we add labels to the form fields. The name attribute should also always be used. In groups of radio buttons and checkboxes, the name attribute provides support for keyboard navigation.
 
-			Form fields with no inline labels should have a label element connected to the field. This provides assistive technology, such as screen readers, with clear and reliable feedback about the purpose of the field.
+		Form fields with no inline labels should have a label element connected to the field. This provides assistive technology, such as screen readers, with clear and reliable feedback about the purpose of the field.
 
-			Label elements should always contain a for attribute that refers to the value of the id attribute in the corresponding form field.
+		Label elements should always contain a for attribute that refers to the value of the id attribute in the corresponding form field.
 
-			Input elements can be embedded in label elments, but the for attribute should always be used. There is assistive technology that won't fetch the content of the label if the for attribute is missing. See the examples below. -->
-			<!-- Label with text field -->
-			<p>
-				<label for="textFieldTwo">Textfield:</label>
-				<br>
-				<input id="textFieldTwo" type="text" name="textFieldTwo">
-			</p>
+		Input elements can be embedded in label elments, but the for attribute should always be used. Some assistive technology won't fetch the content of the label if the for attribute is missing. -->
 
-			<!-- Buttons should always have an inline label. Can be visually hidden. -->
-			<p>
-				<button type="button">Click me!</button>
-			</p>
+		<h2>Input types</h2>
+		<!-- Below follows examples of input types with labels, ordered alphabetically. -->
 
-			<!-- Labels can be combined with drop-down lists -->
-			<!-- Beneficial when connecting error messages with the field -->
-			<p>
-				<label for="selectBox">Make a selection:</label>
-				<br>
-				<select id="selectBox" name="selection">
-					<option value="-1" selected>None</option>
-					<option value="opt1">First option</option>
-					<option value="opt2">Second option</option>
-					<option value="opt3">Third option</option>
-				</select>
-			</p>
+		<h3>Button</h3>
+		<!-- Defines a clickable button (mostly used with a JavaScript).
+		Label for button type is assigned in the value attribute. -->
+		<p>
+			<input type="button" value="Hit me!">
+		</p>
 
-			<!-- Label with datalist -->
-			<p>
-				<label for="dataList">This is a browser datalist:</label>
-				<br>
-				<input id="dataList" list="browsers">
-				<datalist id="browsers">
-					<option value="Internet Explorer">
-					<option value="Firefox">
-					<option value="Google Chrome">
-					<option value="Safari">
-					<option value="Microsoft Edge">
-					<option value="Opera">
-				</datalist>
-			</p>
+		<h3>Checkboxes</h3>
+		<!-- Defines a checkbox.
+		Labels with checkboxes. -->
+		<p>
+			<input id="checkBoxOne" type="checkbox" value="HTML" name="webprogramming">
+			<label for="checkBoxOne">HTML</label>
+			<br>
+			<input id="checkBoxTwo" type="checkbox" value="CSS" name="webprogramming">
+			<label for="checkBoxTwo">CSS</label>
+			<br>
+			<input id="checkBoxThree" type="checkbox" value="JavaScript" name="webprogramming">
+			<label for="checkBoxThree">JavaSript</label>
+			<br>
+			<input id="checkBoxFour" type="checkbox" value="PHP" name="webprogramming">
+			<label for="checkBoxFour">PHP</label>
+			<br>
+			<input id="checkBoxFive" type="checkbox" value="ASP" name="webprogramming">
+			<label for="checkBoxFive">ASP.Net</label>
+		</p>
 
-			<h2>Input types</h2>
-			<!-- Input types are ordered alphabetically -->
-
-			<h3>Button</h3>
-			<!-- Defines a clickable button (mostly used with a JavaScript to activate a script).
-			Label for button type is assigned with the value attribute. -->
-			<input type="button" value="Hit me!" onClick="click()">
-
-			<h3>Checkboxes</h3>
-			<!-- Defines a checkbox.
-			Labels with checkboxes. -->
-			<p>
-				<input id="checkBoxOne" type="checkbox" value="HTML" name="webprogramming">
-				<label for="checkBoxOne">HTML</label>
-				<br>
-				<input id="checkBoxTwo" type="checkbox" value="CSS" name="webprogramming">
-				<label for="checkBoxTwo">CSS</label>
-				<br>
-				<input id="checkBoxThree" type="checkbox" value="JavaScript" name="webprogramming">
-				<label for="checkBoxThree">JavaSript</label>
-				<br>
-				<input id="checkBoxFour" type="checkbox" value="PHP" name="webprogramming">
-				<label for="checkBoxFour">PHP</label>
-				<br>
-				<input id="checkBoxFive" type="checkbox" value="ASP" name="webprogramming">
-				<label for="checkBoxFive">ASP.Net</label>
-
-				<!-- Checkboxes embedded in label elements with the for attribute. -->
-				<p>
-					<label for="checkBoxA">
-						<input id="checkBoxA" type="checkbox" value="a" name="letter">
-							A
-					</label>
-					<br>
-					<label for="checkBoxB">
-						<input id="checkBoxB" type="checkbox" value="b" name="letter">
-							B
-					</label>
-					<br>
-					<label for="checkBoxC">
-						<input id="checkBoxC" type="checkbox" value="c" name="letter">
-							C
-					</label>
-			</p>
-
-			<h3>Color</h3>
-			<!-- Defines a color picker.
-			Label with color type. -->
-			<label for="colorInput">
-				<input id="colorInput" type="color" name="colorPicker" value="#000000">
-				Pick you favorite color:
+		<!-- Checkboxes embedded in label elements with the for attribute. -->
+		<p>
+			<label for="checkBoxA">
+				<input id="checkBoxA" type="checkbox" value="a" name="letter">
+					A
 			</label>
-
-			<h3>Date</h3>
-			<!-- Defines a date control (year, month, day (no time)).
-			Label with date type -->
-			<label for="dateInput">
-				<input id="dateInput" type="date" name="dateControl">
-				Type a date:
+			<br>
+			<label for="checkBoxB">
+				<input id="checkBoxB" type="checkbox" value="b" name="letter">
+					B
 			</label>
-
-			<h3>Date and time</h3>
-			<!-- Defines a date and time control (year, month, day, time (no timezone).
-			Label with date and time type -->
-			<label for="dateTimeInput">
-				<input id="dateTimeInput" type="datetime-local" name="dateTimeControl">
-				Type the date and time for your current location:
+			<br>
+			<label for="checkBoxC">
+				<input id="checkBoxC" type="checkbox" value="c" name="letter">
+					C
 			</label>
+		</p>
 
-			<h3>Email</h3>
-			<!-- Defines a field for an e-mail address.
-			Label with email type -->
-			<label for="emailInput">
-				<input id="emailInput" type="email" name="email">
-				Type your email:
-			</label>
+		<h3>Color</h3>
+		<!-- Defines a color picker.
+		Label with color type. -->
+		<p>
+			<label for="colorInput">Pick you favorite color:</label>
+			<br>
+			<input id="colorInput" type="color" name="colorPicker" value="#000000">
+		</p>
 
-			<h3>File</h3>
-			<!-- Defines a file-select field and a "Browse" button (for file uploads).
-			Label with file type -->
-			<label for="fileInput">
-				<input id="fileInput" type="file" name="file">
-				Pick a file to upload:
-			</label>
+		<h3>Datalist</h3>
+		<!-- Defines a datalist.
+		Label with datalist. -->
+		<p>
+			<label for="dataList">This is a browser datalist:</label>
+			<br>
+			<input id="dataList" list="browsers">
+			<datalist id="browsers">
+				<option value="Internet Explorer">
+				<option value="Firefox">
+				<option value="Google Chrome">
+				<option value="Safari">
+				<option value="Microsoft Edge">
+				<option value="Opera">
+			</datalist>
+		</p>
 
-			<h3>Hidden</h3>
-			<!-- 	Defines a hidden input field.
-			Label with hidden type. The label element needs to be hidden. -->
-			<label for="hiddenInput" class="hiddenLabel">
-				<input id="hiddenInput" type="hidden" name="hidden" value="1234">
-				Secret!
-			</label>
+		<h3>Date</h3>
+		<!-- Defines a date control (year, month, day (no time)).
+		Label with date type -->
+		<p>
+			<label for="dateInput">Type a date:</label>
+			<br>
+			<input id="dateInput" type="date" name="dateControl">
+		</p>
 
-			<h3>Image</h3>
-			<!-- Defines an image as the submit button.
-			Label with image type. This input type needs to contain an alt attribute. -->
+		<h3>Date and time</h3>
+		<!-- Defines a date and time control (year, month, day, time (no timezone).
+		Label with date and time type -->
+		<p>
+			<label for="dateTimeInput">Type the date and time for your current location:</label>
+			<br>
+			<input id="dateTimeInput" type="datetime-local" name="dateTimeControl">
+		</p>
+
+		<h3>Email</h3>
+		<!-- Defines a field for an e-mail address.
+		Label with email type -->
+		<p>
+			<label for="emailInput">Type your email:</label>
+			<br>
+			<input id="emailInput" type="email" name="email">
+		</p>
+
+		<h3>File</h3>
+		<!-- Defines a file-select field and a "Browse" button (for file uploads).
+		Label with file type -->
+		<p>
+			<label for="fileInput">Pick a file to upload:</label>
+			<br>
+			<input id="fileInput" type="file" name="file">
+		</p>
+
+		<h3>Hidden</h3>
+		<!-- 	Defines a hidden input field.
+		Label with hidden type. The label element needs to be hidden. -->
+		<p>
+			<label for="hiddenInput" class="hiddenLabel">Tell me your secret:</label>
+			<br>
+			<input id="hiddenInput" type="hidden" name="secret" value="Secret">
+		</p>
+
+		<h3>Image</h3>
+		<!-- Defines an image as the submit button.
+		Label with image type. This input type needs to contain an alt attribute. -->
+		<p>
 			<label for="imageInput" class="sr-only">
-				<input id="imageInput" type="image" src="arrow.png" alt="Green arrow" height="50" width="50">
+			<input id="imageInput" type="image" src="arrow.png" alt="Green arrow" height="50" width="50">
 				Submit
 			<label>
+		</p>
 
-			<h3>Month</h3>
-			<!-- Defines a month and year control (no timezone).
-			Label with month type. -->
-			<label for="monthInput">
-				<input id="monthInput" type="month" name="month">
-				Pick a month and year:
+		<h3>Month</h3>
+		<!-- Defines a month and year control (no timezone).
+		Label with month type. -->
+		<p>
+			<label for="monthInput">Pick a month and year:</label>
+			<br>
+			<input id="monthInput" type="month" name="month">
+		</p>
+
+		<h3>Number</h3>
+		<!-- Defines a field for entering a number.
+		Label with number type. -->
+		<p>
+			<label for="numberInput">How many?</label>
+			<br>
+			<input id="numberInput" type="number" name="number">
+		</p>
+
+		<h3>Password</h3>
+		<!-- Defines a password field.
+		Label with password type. -->
+		<p>
+			<label for="passwordInput">Password:</label>
+			<br>
+			<input id="passwordInput" type="password" name="password">
+		</p>
+
+		<h3>Radio buttons</h3>
+		<!-- Defines a radio button.
+		Labels with radio buttons. -->
+		<p>
+			<input id="radioOne" type="radio" value="internet-Explorer" name="browsers">
+			<label for="radioOne">Internet Explorer</label>
+			<br>
+			<input id="radioTwo" type="radio" value="Google-Chrome" name="browsers">
+			<label for="radioTwo">Google Chrome</label>
+			<br>
+			<input id="radioThree" type="radio" value="Mozilla-Firefox" name="browsers">
+			<label for="radioThree">Mozilla Firefox</label>
+			<br>
+			<input id="radioFour" type="radio" value="Opera" name="browsers">
+			<label for="radioFour">Opera</label>
+			<br>
+			<input id="radioFive" type="radio" value="Microsoft-Edge" name="browsers">
+			<label for="radioFive">Microsoft Edge</label>
+		</p>
+
+		<!-- Radio buttons embedded in label elements with the for attribute. -->
+		<p>
+			<label for="radioYes">
+				<input id="radioYes" type="radio" value="yes" name="answer">
+				Yes
 			</label>
-
-			<h3>Number</h3>
-			<!-- Defines a field for entering a number.
-			Label with number type. -->
-			<label for="numberInput">
-				<input id="numberInput" type="number" name="number">
-				Cell number:
+			<br>
+			<label for="radioNo">
+				<input id="radioNo" type="radio" value="no" name="answer">
+				No
 			</label>
-
-			<h3>Password</h3>
-			<!-- Defines a password field. Label with password type. -->
-			<label for="passwordInput">
-				<input id="passwordInput" type="password" name="password">
-				Password:
+			<br>
+			<label for="radioMaybe">
+				<input id="radioMaybe" type="radio" value="maybe" name="answer">
+				Maybe
 			</label>
+		</p>
 
-			<h3>Radio buttons</h3>
-			<!-- Defines a radio button
-			Labels with radio buttons. -->
+		<h3>Range</h3>
+		<!-- Defines a range control, like a slider.
+		Labels with range type. -->
+		<p>
+			<label for="rangeInput">Price in US dollars ($):</label>
+			<br>
+			<input id="rangeInput" type="range" name="range" min="0" max="100">
+		</p>
+
+		<h3>Reset</h3>
+		<!-- Defines a reset button.
+		Label is assigned with the value attribute. -->
+		<p>
+			<input type="reset" value="Reset">
+		</p>
+
+		<h3>Search</h3>
+		<!-- Definis a search field.
+		Label with search type. -->
+		<p>
+			<label for="searchInput">Search the Web:</label>
+			<br>
+			<input id="searchInput" type="search" name="q">
+		</p>
+
+		<h3>Submit button</h3>
+		<!-- Defines a submit button.
+		Label is assigned with the value attributet. -->
+		<p>
+			<input type="submit" value="Submit">
+		</p>
+
+		<h3>Tel</h3>
+		<!-- Defines a field for entering a telephone number.
+		Label with tel type. -->
+		<p>
+			<label for="telephoneInput">Enter your telephone number:</label>
+			<br>
+			<input id="telephoneInput" type="tel" name="telephone">
+		</p>
+
+		<h3>Text</h3>
+		<!-- Defines a text field.
+		Label with text type. -->
+		<p>
+			<label for="textInput">Enter your name:</label>
+			<br>
+			<input id="textInput" type="text" name="text">
+		</p>
+
+		<h3>Time</h3>
+		<!-- Defines a control for entering a time. No time zone defined.
+		Label with time type. -->
+		<p>
+			<label for="timeInput">Enter the time on your location:</label>
+			<br>
+			<input id="timeInput" type="time" name="name">
+		</p>
+
+		<h3>URL</h3>
+		<!-- Defines a field for entering a URL.
+		Label with URL type. -->
+		<p>
+			<label for="urlInput">Enter your website URL:</label>
+			<br>
+			<input id="urlInput" type="url" name="website">
+		</p>
+
+		<h3>Week</h3>
+		<!-- Defines a field for entering week and year control.
+		Label with week type. -->
+		<p>
+			<label for="weekInput">Select a week and a year:</label>
+			<br>
+			<input id="weekInput" type="week" name="week">
+		</p>
+
+		<h2>Other form elements and controls</h2>
+		<h3>Button used outside of forms</h3>
+		<!-- Buttons should always have an inline label. The label can be visually hidden if it's necessary. From a cognitive point of view, a visual label is recommended. -->
+		<p>
+			<button type="button">Click me!</button>
+		</p>
+
+		<h3>Output</h3>
+		<!-- Represents the result of a calculation performed by a script.
+		Visually hidden labels and the aria-live attribute may be used. -->
+
+		<form oninput="x.value=parseInt(a.value)+parseInt(b.value)">
 			<p>
-				<input id="radioOne" type="radio" value="internet-Explorer" name="browsers">
-				<label for="radioOne">Internet Explorer</label>
-				<br>
-				<input id="radioTwo" type="radio" value="Google-Chrome" name="browsers">
-				<label for="radioTwo">Google Chrome</label>
-				<br>
-				<input id="radioThree" type="radio" value="Mozilla-Firefox" name="browsers">
-				<label for="radioThree">Mozilla Firefox</label>
-				<br>
-				<input id="radioFour" type="radio" value="Opera" name="browsers">
-				<label for="radioFour">Opera</label>
-				<br>
-				<input id="radioFive" type="radio" value="Microsoft-Edge" name="browsers">
-				<label for="radioFive">Microsoft Edge</label>
+				<label for="a">Number 1:</label>
+				<input type="number" id="a" name="numberA" value="50">
+				<label for="b">Number 2:</label>
+				+<input type="number" id="b" name="numberB" value="50">
+				=<output name="x" for="a b" aria-live="assertive"></output>
 			</p>
-
-			<!-- Radio buttons embedded in label elements with the for attribute. -->
-			<p>
-				<label for="radioYes">
-					<input id="radioYes" type="radio" value="yes" name="answer">
-					Yes
-				</label>
-				<br>
-				<label for="radioNo">
-					<input id="radioNo" type="radio" value="no" name="answer">
-					No
-				</label>
-				<br>
-				<label for="radioMaybe">
-					<input id="radioMaybe" type="radio" value="maybe" name="answer">
-					Maybe
-				</label>
-			</p>
-
-
-
-			<!-- Label with <textarea -->
-			<p>
-				<label for="textArea">Write something:</label>
-				<br>
-				<textarea id="textArea" name="message" rows="10" cols="20"></textarea>
-			</p>
-
-			<h2>Other form elements</h3>
-			<h3>Fieldset and legend elements
-			<!-- In forms that contains a large number of fields, fields that belong together should be grouped and embedded in fieldset elements. THe fieldset element should be started with a legend element, that works as a heading for fieldset element.
-			The fieldset element is of critical use with radio buttons and checkboxes. These elements are rarely used as single objects, but are in most cases used in groups of objects to represent possible choices or alternatives in a common context. The context for a group of form fields, such as radio buttons and checkboxes, is embedded in a legend element. See the example below. -->
-			<fieldset>
-				<legend>Your information</legend>
-				<label for="firstName">First name:</label>
-				<br>
-				<input id="firstName" type="text" name="firstN">
-				<br>
-				<br>
-				<label for="lastName">Last name:</label>
-				<br>
-				<input id="lastName" type="text" name="lastN">
-				<br>
-				<br>
-				<label for="email">Email address:</label>
-				<br>
-				<input id="email" type="email" name="emailAddress">
-			</fieldset>
-			<fieldset>
-				<legend>Your choice for the conference</legend>
-				<label for="choiceOne">
-					<input id="choiceOne" type="radio" name="conferenceOnly">
-					I'd like to attend on the conference only
-				</label>
-				<br>
-				<label for="choiceTwo">
-					<input id="choiceTwo" type="radio" name="conferenceDinner">
-					Of course I will attend on both!
-				</label>
-			</fieldset>
-			<p>
-				<input type="submit" value="Submit">
-			</p>
-
-			<h2>Error messages</h2>
-			<h3>Error messages with input fields</h3>
-
-			<h3>Error messages with radio buttons and Checkboxes</h3>
 		</form>
+
+		<h3>Select box</h3>
+		<!-- Defines a select box containing a set of options.
+		Labels with a drop-down lists. -->
+		<p>
+			<label for="selectBox">Make a selection:</label>
+			<br>
+			<select id="selectBox" name="selection">
+				<option value="-1" selected>None</option>
+				<option value="opt1">First option</option>
+				<option value="opt2">Second option</option>
+				<option value="opt3">Third option</option>
+			</select>
+		</p>
+
+		<h3>Textfield</h3>
+		<!-- Defines a textfield.
+		<Label with <textarea. -->
+		<p>
+			<label for="textArea">Write something:</label>
+			<br>
+			<textarea id="textArea" name="message" rows="10" cols="20"></textarea>
+		</p>
+
+		<h3>Fieldset and legend elements</h3>
+		<!-- In forms that contains a large number of fields, fields that belong together should be grouped and embedded in fieldset elements. THe fieldset element should be started with a legend element, that works as a heading for fieldset element.
+		The fieldset element is of critical use with radio buttons and checkboxes. These elements are rarely used as single objects, but are in most cases used in groups of objects to represent possible choices or alternatives in a common context. The context for a group of form fields, such as radio buttons and checkboxes, is embedded in a legend element. See the example below. -->
+		<fieldset>
+			<legend>Your information</legend>
+			<label for="firstName">First name:</label>
+			<br>
+			<input id="firstName" type="text" name="firstN">
+			<br>
+			<br>
+			<label for="lastName">Last name:</label>
+			<br>
+			<input id="lastName" type="text" name="lastN">
+			<br>
+			<br>
+			<label for="email">Email address:</label>
+			<br>
+			<input id="email" type="email" name="emailAddress">
+		</fieldset>
+		<br>
+		<fieldset>
+			<legend>Your choice for the conference</legend>
+			<label for="choiceOne">
+				<input id="choiceOne" type="radio" name="conferenceOnly">
+				I'd like to attend on the conference only
+			</label>
+			<br>
+			<label for="choiceTwo">
+				<input id="choiceTwo" type="radio" name="conferenceDinner">
+				Of course I will attend on both!
+			</label>
+		</fieldset>
+
+		<h2>Error messages</h2>
+		<!-- For input types with a label element, error messages should be coded as a hidden part of the span element. When an error occurs, the error message is displayed. This way, the connection between the label and the input element, through the for attribute, helps providing screen reader users with a secure feedback on the error message.
+
+		From a cognitive point of view, error messages should be placed between the label and input field. A common placement of error messages is below the input field. This placement cause users with magnifying software and cognitive difficulties to miss there is an error message. By putting error messages above the input field and below the label, errors are easier percieved by users and it's also easier for developers to embed an error message inside the label element, reusing the connection between the elements for feedback. -->
+
+		<h3>Error with text field</h3>
+		<!-- Error message inside label element. -->
+		<p>
+			<label for="emailInput2">
+				Enter your email address:
+				<br>
+				<span class="hidden">
+					You must enter a valid email address!
+				</span>
+			</label>
+			<br>
+			<input id="semailInput2" type="email" name="email2">
+		</p>
+
+		<h3>Error messages with radio buttons and checkboxes</h3>
+		<!-- In groups of radio buttons and checkboxes, error messages shouldn't be connected to a single radio button or checkbox. Instead, error messages should be connected to a entire groups of objects. To do this, the legend element should be used. -->
+
+		<!-- Error message embedded in legend element used with radio buttons. -->
+		<fieldset>
+			<legend>
+				Pick your choice of beer:
+				<br>
+				<span class="hidden">
+					Please pick a drink.
+				</span>
+			</legend>
+			<input id="beerOne" type="radio" value="Brooklyn-Lager" name="beer">
+			<label for="beerOne">Brooklyn Lager</label>
+			<br>
+			<input id="beerTwo" type="radio" value="Sam-Adams-Pale-Ale" name="beer">
+			<label for="beerTwo">Samual Adams Pale Ale</label>
+			<br>
+			<input id="beerThree" type="radio" value="Twister-Thistle-IPA" name="beer">
+			<label for="beerThree">Twisted Thistle IPA</label>
+		</fieldset>
+		<br>
+		<!--  Error messages embedded in legend element used with checkboxes. -->
+		<fieldset>
+			<legend>
+				Prescription settings
+				<br>
+				<span class="hidden">
+					At least one choice is required.
+				</span>
+			</legend>
+			<input id="settingOne" type="checkbox" value="updates" name="newsletter">
+			<label for="settingOne">Important updates</label>
+			<br>
+			<input id="settingTwo" type="checkbox" value="news" name="newsletter">
+			<label for="settingTwo">News</label>
+			<br>
+			<input id="settingThree" type="checkbox" value="offers" name="newsletter">
+			<label for="settingThree">Offers</label>
+		</fieldset>
 	</body>
 </html>
